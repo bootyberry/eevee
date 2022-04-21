@@ -146,12 +146,12 @@ func authHandler(s *discordgo.Session, m *discordgo.MessageCreate, args []string
 	characterName := characterFirstName + " " + characterLastName
 
 	// Attempt to change nickname
-	//err := s.GuildMemberNickname(m.GuildID, m.Author.ID, characterName)
-	//if err != nil {
-	//	fmt.Println("Failed to change nickname for ", m.Author.Username)
-	//	fmt.Println(err)
-	//return
-	//}
+	err := s.GuildMemberNickname(m.GuildID, m.Author.ID, characterName)
+	if err != nil {
+		fmt.Println("Failed to change nickname for ", m.Author.Username)
+		fmt.Println(err)
+		return
+	}
 
 	// Add default role to member
 	dguild, err := s.Guild(m.GuildID)
